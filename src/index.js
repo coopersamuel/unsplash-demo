@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import PhotoContainer from './components/PhotoContainer/PhotoContainer';
 import rootReducer from './reducers';
 import './styles.scss';
 
@@ -13,7 +14,7 @@ const App = () => {
     return (
         <Provider store={store}>
             <div>
-                Boilerplate!
+                <PhotoContainer />
             </div>
         </Provider>
     );

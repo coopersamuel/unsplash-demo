@@ -1,5 +1,8 @@
 import React from 'react';
-import fetchPhotos from '../../utils/unsplash';
+
+import { fetchPhotos } from '../../actions/actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class PhotoContainer extends React.Component {
     constructor(props) {
@@ -9,10 +12,22 @@ class PhotoContainer extends React.Component {
     render() {
         return (
             <button onClick={() => {
-                fetchPhotos("mountains");
+                this.props.fetchPhotos("mountains");
             }}>Fetch photos</button>
         );
     }
 }
 
-export default PhotoContainer;
+function mapStateToProps(state) {
+    return {
+        photos: state.photos
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        fetchPhotos
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoContainer);

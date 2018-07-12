@@ -5,7 +5,10 @@ export default (state = [], action) => {
         case ActionTypes.LOAD_SELECT_PHOTO:
             return {
                 ...state,
-                [action.payload.type]: action.payload.photo
+                [action.payload.type]: {
+                    type: action.payload.type,
+                    photo: action.payload.photo
+                }
             };
 
         default:

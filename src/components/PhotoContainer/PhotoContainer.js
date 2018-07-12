@@ -12,10 +12,11 @@ class PhotoContainer extends React.Component {
         super(props);
 
         this.state = {
-            photoSelected: false,
+            typeSelected: '',
         };
 
         this.generatePhotos = this.generatePhotos.bind(this);
+        this.handlePhotoSelect = this.handlePhotoSelect.bind(this);
     }
 
     async componentWillMount() {
@@ -29,11 +30,20 @@ class PhotoContainer extends React.Component {
         this.props.fetchSelectPhoto(photoIds.bright, 'bright');
     }
 
+    handlePhotoSelect(type) {
+        this.props.fetchPhotos(type);
+        this.setState({ typeSelected: type });
+    }
+
     render() {
         return (
-            <div>
-                {!this.state.photoSelected && 
-                    <PhotoSelect photos={this.props.selectPhotos} />
+            <div className="container-fluid">
+                {!this.state.typeSelected && 
+                    <PhotoSelect photos={this.props.selectPhotos} handleClick={this.handlePhotoSelect} />
+
+                    ||
+
+                    <div>Next component here</div>
                 }
             </div>
         );

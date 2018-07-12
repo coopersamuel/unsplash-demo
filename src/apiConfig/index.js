@@ -6,10 +6,10 @@
 
 // These are the ids for the curated photos
 const photoIds = {
-    moody: 'AVzByhROPbs',
-    adventurous: 'qI5XixBb6TU',
-    chill: 'UuoovtKdlLA',
-    bright: 'WXX_DhjlmD4'
+    moody: '5ditmO9_ae0',
+    adventurous: 'xJ2tjuUHD9M',
+    chill: 'tvleqH3p1os',
+    bright: 'Bkci_8qcdvQ'
 };
 
 // These are ids for the curated playlists

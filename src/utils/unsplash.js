@@ -27,7 +27,7 @@ let UnsplashUtils = {
 
     async fetchSinglePhoto(id) {
         try {
-            let response = await fetch(`https://api.unsplash.com/photos/${id}`, {
+            let response = await fetch(`https://api.unsplash.com/photos/${id}?w=675&h=375`, {
                 headers: { Authorization: `Client-ID ${accessKey}` }
             });
     

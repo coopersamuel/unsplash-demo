@@ -14,7 +14,8 @@ let SpotifyUtils = {
             const token = accessToken;
             player = new Spotify.Player({
               name: 'Moodboard Player',
-              getOAuthToken: cb => { cb(token); }
+              getOAuthToken: cb => { cb(token); },
+              volume: 0.5
             });
       
             // Error handling
@@ -101,6 +102,7 @@ let SpotifyUtils = {
     play(spotifyUris) {
         SpotifyUtils.authorize();
 
+        // Tell spotify to start playing on the Web Player
         fetch(`https://api.spotify.com/v1/me/player/play?device_id=${player._options.id}`, {
                 method: 'PUT',
                 body: JSON.stringify({ uris: spotifyUris }),

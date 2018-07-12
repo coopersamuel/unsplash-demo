@@ -1,3 +1,3 @@
-import asynchMiddleware from './asynchMiddleware';
+import asyncMiddleware from './asyncMiddleware';
 
-export { asynchMiddleware };
+export { asyncMiddleware };

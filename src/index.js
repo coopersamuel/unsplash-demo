@@ -1,22 +1,29 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import { asyncMiddleware } from './middleware';
 import SpotifyUtils from './utils/spotify';
 import PhotoContainer from './components/PhotoContainer/PhotoContainer';
 import rootReducer from './reducers';
 import './styles.scss';
 
 const App = () => {
-    let store = createStore(rootReducer, composeWithDevTools());
+    let middleware = composeWithDevTools(applyMiddleware(asyncMiddleware));
+    let store = createStore(
+        rootReducer,
+        middleware
+    );
+
+    // Initialize the web player
     SpotifyUtils.initWebPlayer();
 
     return (
         <Provider store={store}>
             <div>
-                <button onClick={() => {
+                {/* <button className="btn btn-primary" onClick={() => {
                     SpotifyUtils.authorize();
                 }}>Authorize</button>
                 <button onClick={() => {
@@ -24,7 +31,7 @@ const App = () => {
                 }}>Play</button>
                 <button onClick={() => {
                     console.log(SpotifyUtils.getPlaylist('37i9dQZF1DWYzpSJHStHHx'));
-                }}>Playlist</button>
+                }}>Playlist</button> */}
                 <PhotoContainer />
             </div>
         </Provider>

@@ -1106,7 +1106,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var clientId = _config.spotifyApiKeys.clientId;
 var clientSecret = _config.spotifyApiKeys.clientSecret;
-var redirectUri = _config.spotifyApiKeys.redirectURI; // Will need to change this later
+var redirectUri = _config.spotifyApiKeys.redirectURI;
 var accessToken = void 0;
 var player = void 0;
 var playerState = void 0;

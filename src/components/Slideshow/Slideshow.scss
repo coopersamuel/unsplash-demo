@@ -21,6 +21,11 @@
     letter-spacing: 1px;
 }
 
+.app-title:hover {
+    cursor: pointer;
+    opacity: .65;
+}
+
 .controls-container {
     //float: right;
     margin-top: -5px;

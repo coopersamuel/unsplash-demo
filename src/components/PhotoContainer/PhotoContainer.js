@@ -19,6 +19,7 @@ class PhotoContainer extends React.Component {
 
         this.generatePhotos = this.generatePhotos.bind(this);
         this.handlePhotoSelect = this.handlePhotoSelect.bind(this);
+        this.handleHomeClick = this.handleHomeClick.bind(this);
     }
 
     componentWillMount() {
@@ -43,15 +44,18 @@ class PhotoContainer extends React.Component {
         this.setState({ typeSelected: type });
     }
 
+    handleHomeClick() {
+        console.log('something happened')
+        this.setState({ typeSelected: '' });
+    }
+
     render() {
         return (
             <div className="container-fluid full-width-container">
                 {!this.state.typeSelected && 
                     <PhotoSelect photos={this.props.selectPhotos} handleClick={this.handlePhotoSelect} />
-
                     ||
-
-                    <Slideshow photos={this.props.photos} playlist={this.props.playlist} />
+                    <Slideshow photos={this.props.photos} playlist={this.props.playlist} handleClick={this.handleHomeClick} />
                 }
             </div>
         );

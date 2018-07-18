@@ -6,18 +6,18 @@
 
 // These are the ids for the curated photos
 const photoIds = {
-    moody: '5ditmO9_ae0',
-    adventurous: 'xJ2tjuUHD9M',
-    chill: 'tvleqH3p1os',
-    bright: 'Bkci_8qcdvQ'
+    moody: 'PDfe7H5GJR0',
+    adventurous: 'UniC8xhlzaE',
+    chill: 'VYApL4dcNn8',
+    bright: '3TmLV0fLzfU'
 };
 
 // These are ids for the curated playlists
 const playlistIds = {
-    moody: '',
-    adventurous: '',
+    moody: '37i9dQZF1DX79Y9Kr2M2tM',
+    adventurous: '37i9dQZF1DWSXBu5naYCM9',
     chill: '37i9dQZF1DWYzpSJHStHHx',
-    bright: ''
+    bright: '37i9dQZF1DWVu0D7Y8cYcs'
 };
 
 export { photoIds, playlistIds };

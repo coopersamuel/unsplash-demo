@@ -1,9 +1,37 @@
-.placeholder {
-    // width: 800px;
-    height: 375px;
-    margin: 20px 0;
+.photos-container {
+    position: relative;
+}
+
+.clickable-photo {
+    padding: 0;
+    margin-bottom: -6px;
+    display: inline-block;
+    height: 50vh;
+    width: 50vw;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .clickable-photo:hover {
+    opacity: .75;
     cursor: pointer;
+}
+
+.instructions-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+}
+
+.instructions {
+    position: relative;
+    left: -50%;
+    //top: -50%;
+    background-color: #ffffff;
+    //opacity: .65;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
 }

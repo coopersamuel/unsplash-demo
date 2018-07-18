@@ -79,7 +79,10 @@ class Slideshow extends React.Component {
             <div className="slideshow-container">
                 <div className="slideshow-photo" style={{ backgroundImage: `url(${photo.urls.regular})` }}>
                     <div className="row pt-4 justify-content-around playback-container">
-                        <div className="col-4 align-self-center text-center app-title">Unsplash Moodboard</div>
+                        <div className="col-4 align-self-center text-center app-title" onClick={() => {
+                            SpotifyUtils.pause();
+                            this.props.handleClick();
+                        }}>Unsplash Moodboard</div>
                         <div className="col-4 align-self-center text-center">
                             <div className="meta-container">
                                 <div className="title">{this.state.meta.songName}</div>

@@ -12,6 +12,7 @@ class PhotoSelect extends React.Component {
                             return (
                                 <div 
                                     className="clickable-photo" 
+                                    key={photo.photo.id}
                                     style={{ backgroundImage: `url(${photo.photo.urls.regular})` }} 
                                     onClick={() => this.props.handleClick(photo.type)}>
                                 </div>

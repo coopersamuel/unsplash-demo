@@ -2,7 +2,7 @@ import { spotifyApiKeys } from '../../config';
 
 const clientId = spotifyApiKeys.clientId;
 const clientSecret = spotifyApiKeys.clientSecret;
-const redirectUri = spotifyApiKeys.redirectURI; // Will need to change this later
+const redirectUri = spotifyApiKeys.redirectURI;
 let accessToken;
 let player;
 let playerState;

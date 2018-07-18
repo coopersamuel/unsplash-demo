@@ -5,6 +5,7 @@ const clientSecret = spotifyApiKeys.clientSecret;
 const redirectUri = spotifyApiKeys.redirectURI; // Will need to change this later
 let accessToken;
 let player;
+let playerState;
 
 let SpotifyUtils = {
     initWebPlayer() {
@@ -25,7 +26,7 @@ let SpotifyUtils = {
             player.addListener('playback_error', ({ message }) => { console.error(message); });
       
             // Playback status updates
-            player.addListener('player_state_changed', state => { console.log(state); });
+            player.addListener('player_state_changed', state => { playerState = state; });
       
             // Ready
             player.addListener('ready', ({ device_id }) => {
@@ -80,13 +81,14 @@ let SpotifyUtils = {
 
                 if (jsonResponse.items) {
                     return jsonResponse.items.map(item => {
-                        return {
-                            id: item.track.id,
-                            title: item.track.name,
-                            artist: item.track.artists[0].name,
-                            album: item.track.album.name,
-                            uri: item.track.uri
-                        };
+                        // return {
+                        //     id: item.track.id,
+                        //     title: item.track.name,
+                        //     artist: item.track.artists[0].name,
+                        //     album: item.track.album.name,
+                        //     uri: item.track.uri
+                        // };
+                        return item.track.uri;
                     });
                 } else {
                     return [];
@@ -111,6 +113,26 @@ let SpotifyUtils = {
                     'Authorization': `Bearer ${accessToken}`
             },
         });
+    },
+
+    getPlayerState() {
+        return playerState;
+    },
+
+    pause() {
+        player.pause();
+    },
+
+    resume() {
+        player.resume();
+    },
+
+    previousTrack() {
+        player.previousTrack();
+    },
+
+    nextTrack() {
+        player.nextTrack();
     }
 }
 

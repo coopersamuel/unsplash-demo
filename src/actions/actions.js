@@ -1,6 +1,7 @@
 import * as ActionTypes from './actionTypes';
 import { asyncAction } from '../middleware/asyncMiddleware';
 import UnsplashUtils from '../utils/unsplash';
+import SpotifyUtils from '../utils/spotify';
 
 /**
  *  Action Creators
@@ -24,5 +25,14 @@ export const loadSelectPhoto = (photo, type) => {
             type,
             photo
         }
+    };
+}
+
+export const fetchPlaylist = playlistId => asyncAction(SpotifyUtils.getPlaylist(playlistId).then(loadPlaylist));
+
+export const loadPlaylist = playlist => {
+    return {
+        type: ActionTypes.LOAD_PLAYLIST,
+        payload: playlist
     };
 }

@@ -1,0 +1,41 @@
+.slideshow-container {
+    position: relative;
+}
+
+.slideshow-photo {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.playback-container {
+    opacity: .75;
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.controls-container {
+    //float: right;
+    margin-top: -5px;
+    font-size: 2.5rem;
+}
+
+.controls:hover {
+    opacity: .65;
+    cursor: pointer;
+}
+
+.meta-container {
+    font-size: .90rem;
+
+    .title {
+        font-size: 1.1rem;
+    }
+}

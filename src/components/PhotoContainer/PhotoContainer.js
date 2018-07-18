@@ -1,9 +1,11 @@
 import React from 'react';
 import PhotoSelect from '../PhotoSelect/PhotoSelect';
+import Slideshow from '../Slideshow/Slideshow';
+import './PhotoContainer.scss';
 
 import { photoIds, playlistIds } from '../../apiConfig';
 import { map } from 'lodash';
-import { fetchPhotos, fetchSelectPhoto } from '../../actions/actions';
+import { fetchPhotos, fetchSelectPhoto, fetchPlaylist } from '../../actions/actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -19,11 +21,16 @@ class PhotoContainer extends React.Component {
         this.handlePhotoSelect = this.handlePhotoSelect.bind(this);
     }
 
-    async componentWillMount() {
-        await this.generatePhotos();
+    componentWillMount() {
+        this.generatePhotos();
     }
 
     generatePhotos() {
+        /**
+         * This function is VERY ugly, unfortunately right now there is no good way to grab four photos each with a different search term
+         * so four separate API calls will have to do for now
+         */
+
         this.props.fetchSelectPhoto(photoIds.moody, 'moody');
         this.props.fetchSelectPhoto(photoIds.adventurous, 'adventurous');
         this.props.fetchSelectPhoto(photoIds.chill, 'chill');
@@ -32,18 +39,19 @@ class PhotoContainer extends React.Component {
 
     handlePhotoSelect(type) {
         this.props.fetchPhotos(type);
+        this.props.fetchPlaylist(playlistIds[type]);
         this.setState({ typeSelected: type });
     }
 
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container-fluid full-width-container">
                 {!this.state.typeSelected && 
                     <PhotoSelect photos={this.props.selectPhotos} handleClick={this.handlePhotoSelect} />
 
                     ||
 
-                    <div>Next component here</div>
+                    <Slideshow photos={this.props.photos} playlist={this.props.playlist} />
                 }
             </div>
         );
@@ -53,14 +61,16 @@ class PhotoContainer extends React.Component {
 function mapStateToProps(state) {
     return {
         selectPhotos: state.selectPhotos,
-        photos: state.photos
+        photos: state.photos,
+        playlist: state.playlist
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         fetchSelectPhoto,
-        fetchPhotos
+        fetchPhotos,
+        fetchPlaylist
     }, dispatch);
 }
 

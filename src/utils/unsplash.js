@@ -7,7 +7,7 @@ const redirectURI = unsplashApiKeys.redirectURI;
 let UnsplashUtils = {
     async fetchPhotos(queryParam) {
         try {
-            let response = await fetch(`https://api.unsplash.com/search/photos?query=${queryParam}`, {
+            let response = await fetch(`https://api.unsplash.com/search/photos?query=${queryParam}&per_page=50&orientation=landscape`, {
                 headers: { Authorization: `Client-ID ${accessKey}` }
             });
     

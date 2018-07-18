@@ -513,6 +513,7 @@ var PhotoSelect = function (_React$Component) {
                     (0, _lodash.map)(this.props.photos, function (photo) {
                         return _react2.default.createElement('div', {
                             className: 'clickable-photo',
+                            key: photo.photo.id,
                             style: { backgroundImage: 'url(' + photo.photo.urls.regular + ')' },
                             onClick: function onClick() {
                                 return _this2.props.handleClick(photo.type);

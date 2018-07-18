@@ -164,7 +164,7 @@ var unsplashApiKeys = {
 var spotifyApiKeys = {
     clientId: 'ec4504f52f3a4d90aae01796a2a0d1d4',
     clientSecret: 'eead0a60c41343d79b8d16f0d17d06d5',
-    redirectURI: 'http://localhost:3001/' // Change this later
+    redirectURI: 'https://coopersamuel.github.io/unsplash-demo/' // Change this later
 };
 
 exports.unsplashApiKeys = unsplashApiKeys;

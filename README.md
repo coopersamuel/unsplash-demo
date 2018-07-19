@@ -3,6 +3,8 @@
 Unsplash Moodboard is a demo app using the Unsplash API and the Spotify Web Player SDK
 To use the application you must have a Spotify premium account
 
+Check it out at https://coopersamuel.github.io/unsplash-demo
+
 **Note**
 The Spotify Web Player does not support the Safari browser...
 

@@ -29,7 +29,6 @@ export { unsplashApiKeys, spotifyApiKeys };
 Then...
 
 ```
-git clone
 npm install
 npm run dev
 ```
